@@ -1,0 +1,26 @@
+{
+  "event": "MessageDeliveryFailed",
+  "dashboard_hostname": "https://dashboard.your-mail.com",
+  "timestamp": 1647817702.971591,
+  "payload": {
+    "message": {
+      "id": 60,
+      "token": "rKsd4545LZ",
+      "direction": "outgoing",
+      "message_id": "0Oj9np4QDpsdsdsfa34wfsvcfssLfv3MdtWgXxYI@localhost.localdomain",
+      "to": "hello@example.com",
+      "from": "to@from.com",
+      "subject": "New message from Example.com",
+      "timestamp": 1647817702.215434,
+      "spam_status": "Spam",
+      "tag": "welcome"
+    },
+    "status": "HardFail",
+    "details": "Message is likely spam. Threshold is 4.5 and the message scored 4.7.",
+    "output": "250 2.0.0 OK 1477944899 ly2si31746747wjb.95 - gsmtp",
+    "sent_with_ssl": true,
+    "timestamp": 1647817702.9536633,
+    "time": 0.22
+  },
+  "uuid": "26b3c882-1e08-403a-ab3f-a31434232397"
+}
