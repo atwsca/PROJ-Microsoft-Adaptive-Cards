@@ -71,7 +71,7 @@
               },
               {
                 "title": "Subject",
-                "value": "{{$node["Body"].json["payload"]["message"]["subject"]}}"
+                "value": "{{$node["Body"].json["payload"]["message"]["subject"].replace(/"/g, '[quote]')}}"
               }
             ]
           }
