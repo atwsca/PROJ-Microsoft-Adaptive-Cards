@@ -1,0 +1,147 @@
+{
+  "type": "message",
+  "attachments": [
+    {
+      "contentType": "application/vnd.microsoft.card.adaptive",
+      "contentUrl": null,
+      "content": {
+        "type": "AdaptiveCard",
+        "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+        "version": "1.4",
+        "msTeams": {
+          "width": "full"
+        },
+        "body": [
+          {
+            "type": "ColumnSet",
+            "columns": [
+              {
+                "type": "Column",
+                "items": [
+                  {
+                    "type": "Image",
+                    "url": "https://cdn.atws.ca/static/img/icons/ic_fluent_mail_inbox_dismiss_24_filled.png",
+                    "size": "Small",
+                    "horizontalAlignment": "Center"
+                  }
+                ],
+                "width": "auto"
+              },
+              {
+                "type": "Column",
+                "items": [
+                  {
+                    "type": "TextBlock",
+                    "weight": "Bolder",
+                    "wrap": true,
+                    "text": "${event}"
+                  },
+                  {
+                    "type": "TextBlock",
+                    "spacing": "None",
+                    "text": "Submitted on {{$node["Body"].json["payload"]["orignal_message"]["timestamp"]}}",
+                    "isSubtle": true,
+                    "wrap": true
+                  }
+                ],
+                "width": "stretch"
+              }
+            ]
+          },
+          {
+            "type": "TextBlock",
+            "wrap": true,
+            "text": "Following email has been bounced."
+          },
+          {
+            "type": "FactSet",
+            "facts": [
+              {
+                "title": "From",
+                "value": "{{$node["Body"].json["payload"]["orignal_message"]["from"]}}"
+              },
+              {
+                "title": "To",
+                "value": "{{$node["Body"].json["payload"]["orignal_message"]["to"]}}"
+              },
+              {
+                "title": "Subject",
+                "value": "{{$node["Body"].json["payload"]["orignal_message"]["subject"].replace(/"/g, '[quote]')}}"
+              },
+              {
+                "title": "Tag",
+                "value": "{{$node["Body"].json["payload"]["orignal_message"]["tag"]}}"
+              },
+              {
+                "title": "Direction",
+                "value": "{{$node["Body"].json["payload"]["orignal_message"]["direction"]}}"
+              },
+              {
+                "title": "Spam Status",
+                "value": "{{$node["Body"].json["payload"]["orignal_message"]["spam_status"]}}"
+              }
+            ]
+          }
+        ],
+        "actions": [
+          {
+            "type": "Action.ShowCard",
+            "title": "Show Bounce Message Reply",
+            "card": {
+              "type": "AdaptiveCard",
+              "body": [
+                {
+                  "type": "TextBlock",
+                  "weight": "Bolder",
+                  "wrap": true,
+                  "text": "Bounced Email information"
+                },
+                {
+                  "type": "FactSet",
+                  "facts": [
+                    {
+                      "title": "From",
+                      "value": "{{$node["Body"].json["payload"]["bounce"]["from"]}}"
+                    },
+                    {
+                      "title": "To",
+                      "value": "{{$node["Body"].json["payload"]["bounce"]["to"]}}"
+                    },
+                    {
+                      "title": "Subject",
+                      "value": "{{$node["Body"].json["payload"]["bounce"]["subject"].replace(/"/g, '[quote]')}}"
+                    },
+                    {
+                      "title": "Tag",
+                      "value": "{{$node["Body"].json["payload"]["bounce"]["tag"]}}"
+                    },
+                    {
+                      "title": "Direction",
+                      "value": "{{$node["Body"].json["payload"]["bounce"]["direction"]}}"
+                    },
+                    {
+                      "title": "Spam Status",
+                      "value": "{{$node["Body"].json["payload"]["bounce"]["spam_status"]}}"
+                    }
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": "Action.OpenUrl",
+                  "title": "Open in Postal",
+                  "url": "https://{{$node["GlobalVars"].parameter["values"]["string"][1]["value"]}}/org/org-name/servers/server-name/message/{{$node["Body"].json["payload"]["bounce"]["id"]}}"
+                }
+              ]
+            }
+          },
+          {
+            "type": "Action.OpenUrl",
+            "title": "Open in Orignal Email in Postal",
+            "url": "https://{{$node["GlobalVars"].parameter["values"]["string"][1]["value"]}}/org/org-name/servers/server-name/message/{{$node["Body"].json["payload"]["orignal_message"]["id"]}}"
+          }
+        ]
+      }
+    }
+  ]
+}
