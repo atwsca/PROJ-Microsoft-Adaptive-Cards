@@ -128,7 +128,7 @@
     },
     {
       "type": "Action.OpenUrl",
-      "title": "Open in Orignal Email in Postal",
+      "title": "Open Orignal Email in Postal",
       "url": "https://${dashboard_hostname}/org/org-name/servers/server-name/message/${payload.original_message.id}"
     }
   ]

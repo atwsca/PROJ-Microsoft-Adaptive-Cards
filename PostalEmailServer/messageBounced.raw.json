@@ -34,12 +34,12 @@
                     "type": "TextBlock",
                     "weight": "Bolder",
                     "wrap": true,
-                    "text": "${event}"
+                    "text": "{{$node["Body"].json["event"]}}"
                   },
                   {
                     "type": "TextBlock",
                     "spacing": "None",
-                    "text": "Submitted on {{$node["Body"].json["payload"]["orignal_message"]["timestamp"]}}",
+                    "text": "Submitted on {{$node["Body"].json["payload"]["original_message"]["timestamp"]}}",
                     "isSubtle": true,
                     "wrap": true
                   }
@@ -58,27 +58,27 @@
             "facts": [
               {
                 "title": "From",
-                "value": "{{$node["Body"].json["payload"]["orignal_message"]["from"]}}"
+                "value": "{{$node["Body"].json["payload"]["original_message"]["from"]}}"
               },
               {
                 "title": "To",
-                "value": "{{$node["Body"].json["payload"]["orignal_message"]["to"]}}"
+                "value": "{{$node["Body"].json["payload"]["original_message"]["to"]}}"
               },
               {
                 "title": "Subject",
-                "value": "{{$node["Body"].json["payload"]["orignal_message"]["subject"].replace(/"/g, '[quote]')}}"
+                "value": "{{$node["Body"].json["payload"]["original_message"]["subject"].replace(/"/g, '[quote]')}}"
               },
               {
                 "title": "Tag",
-                "value": "{{$node["Body"].json["payload"]["orignal_message"]["tag"]}}"
+                "value": "{{$node["Body"].json["payload"]["original_message"]["tag"]}}"
               },
               {
                 "title": "Direction",
-                "value": "{{$node["Body"].json["payload"]["orignal_message"]["direction"]}}"
+                "value": "{{$node["Body"].json["payload"]["original_message"]["direction"]}}"
               },
               {
                 "title": "Spam Status",
-                "value": "{{$node["Body"].json["payload"]["orignal_message"]["spam_status"]}}"
+                "value": "{{$node["Body"].json["payload"]["original_message"]["spam_status"]}}"
               }
             ]
           }
@@ -137,8 +137,8 @@
           },
           {
             "type": "Action.OpenUrl",
-            "title": "Open in Orignal Email in Postal",
-            "url": "https://{{$node["GlobalVars"].parameter["values"]["string"][1]["value"]}}/org/org-name/servers/server-name/message/{{$node["Body"].json["payload"]["orignal_message"]["id"]}}"
+            "title": "Open original Email in Postal",
+            "url": "https://{{$node["GlobalVars"].parameter["values"]["string"][1]["value"]}}/org/org-name/servers/server-name/message/{{$node["Body"].json["payload"]["original_message"]["id"]}}"
           }
         ]
       }
