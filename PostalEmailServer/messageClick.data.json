@@ -1,0 +1,19 @@
+{
+  "event": "MessageLinkClicked",
+  "url":"https://atech.media",
+  "token":"VJzsFA0S",
+  "ip_address":"185.22.208.2",
+  "user_agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.98 Safari/537.36",
+  "message":{
+    "id":12345,
+    "token":"abcdef123",
+    "direction":"outgoing",
+    "message_id":"5817a64332f44_4ec93ff59e79d154565eb@app34.mail",
+    "to":"test@example.com",
+    "from":"sales@awesomeapp.com",
+    "subject":"Welcome to AwesomeApp",
+    "timestamp":1477945177.12994,
+    "spam_status":"NotSpam",
+    "tag":"welcome"
+  }
+}
