@@ -74,6 +74,9 @@
   ],
   "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
   "version": "1.4",
+  "msTeams": {
+    "width": "full"
+  },
   "actions": [
     {
       "type": "Action.ShowCard",
